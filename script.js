@@ -8,65 +8,36 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-function actualizarContador() {
-    const fechaObjetivo = new Date('2025-07-24T16:00:00');
-    const ahora = new Date();
-    const diferencia = fechaObjetivo - ahora;
-
-    if (diferencia <= 0) {
-        document.getElementById('contador').innerHTML = `
-            <div class="countdown-box">
-                <div class="h3 mb-0">0</div>
-                <small>Días</small>
-            </div>
-            <div class="countdown-box">
-                <div class="h3 mb-0">0</div>
-                <small>Horas</small>
-            </div>
-            <div class="countdown-box">
-                <div class="h3 mb-0">0</div>
-                <small>Min</small>
-            </div>
-            <div class="countdown-box">
-                <div class="h3 mb-0">0</div>
-                <small>Seg</small>
-            </div>
-        `;
-        return;
+  function updateCountdown() {
+    const targetDate = new Date("2025-07-20T00:00:00").getTime();
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+  
+    if (diff <= 0) {
+      document.getElementById("contador").innerHTML = "¡Ya llegó el gran día!";
+      return;
     }
-
-    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
-    const minutos = Math.floor((diferencia / 1000 / 60) % 60);
-    const segundos = Math.floor((diferencia / 1000) % 60);
-
-    document.getElementById('contador').innerHTML = `
-        <div class="countdown-box">
-            <div class="h3 mb-0">${dias}</div>
-            <small>Días</small>
-        </div>
-        <div class="countdown-box">
-            <div class="h3 mb-0">${horas}</div>
-            <small>Horas</small>
-        </div>
-        <div class="countdown-box">
-            <div class="h3 mb-0">${minutos}</div>
-            <small>Min</small>
-        </div>
-        <div class="countdown-box">
-            <div class="h3 mb-0">${segundos}</div>
-            <small>Seg</small>
-        </div>
-    `;
-}
-setInterval(actualizarContador, 1000);
-actualizarContador();
+  
+    const days = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+    const hours = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+    const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, '0');
+    const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, '0');
+  
+    document.getElementById("days-top").textContent = days;
+    document.getElementById("days-bottom").textContent = days;
+    document.getElementById("hours-top").textContent = hours;
+    document.getElementById("hours-bottom").textContent = hours;
+    document.getElementById("minutes-top").textContent = minutes;
+    document.getElementById("minutes-bottom").textContent = minutes;
+    document.getElementById("seconds-top").textContent = seconds;
+    document.getElementById("seconds-bottom").textContent = seconds;
+  }
+  
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
 
 
   const imagenes = [
-    "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop",
     "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
     "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=600&fit=crop",
     "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop",
@@ -144,7 +115,19 @@ function manejarNavegacionMovil() {
 window.addEventListener('resize', manejarNavegacionMovil);
 manejarNavegacionMovil();
 
-document.addEventListener('DOMContentLoaded', () => {
-    const video = document.getElementById('hidden-video');
-    video.src += '&playsinline=1'; // Add playsinline parameter for mobile compatibility
+const audio = document.getElementById('miAudio');
+
+  function playAudio() {
+    audio.play().catch(() => {
+      // Esperar interacción del usuario para intentar de nuevo
+      function iniciar() {
+        audio.play();
+        window.removeEventListener('touchstart', iniciar);
+        window.removeEventListener('click', iniciar);
+      }
+      window.addEventListener('touchstart', iniciar, { once: true });
+      window.addEventListener('click', iniciar, { once: true });
     });
+  }
+
+  window.addEventListener('load', playAudio);
