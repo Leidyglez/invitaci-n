@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fulana Y Fulano - Boda tal dia</title>
+  <meta name="description" content="Celebra con nosotros el matrimonio de María y Carlos el 15 de Diciembre de 2024">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento:wght@400&family=Playfair+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar d-none d-md-block">
+    <div class="container d-flex justify-content-center">
+      <a href="#inicio" class="nav-link">Inicio</a>
+      <a href="#evento" class="nav-link">Evento</a>
+      <a href="#galeria" class="nav-link">Galería</a>
+      <a href="#historia" class="nav-link">Historia</a>
+    </div>
+  </nav>
+
+  <nav class="mobile-nav d-md-none">
+    <div class="d-flex justify-content-around">
+      <a href="#inicio" class="nav-link"><div class="icon-heart"></div>Inicio</a>
+      <a href="#evento" class="nav-link"><div class="icon-calendar"></div>Evento</a>
+      <a href="#galeria" class="nav-link"><div class="icon-camera"></div>Galería</a>
+      <a href="#historia" class="nav-link"><div class="icon-sparkles"></div>Historia</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="inicio" class="hero seccion text-center text-white">
+      <div class="overlay"></div>
+      <div class="contenido">
+        <h1 class="display-1 font-sacramento">Fulana & Fulano</h1>
+        <img src="fprint.png" alt="" class="img-fluid rounded">
+        <h2 class="h2 mb-4">15 de Septiembre, 2025</h2>
+        <p class="lead fst-italic">"He encontrado al que ama mi alma"<br>Cantares 3:4</p>
+        <div id="contador" class="d-flex justify-content-center gap-3 my-4"></div>
+        <button class="btn btn-primario" onclick="document.getElementById('evento').scrollIntoView({behavior: 'smooth'});">Guarda la Fecha</button>
+      </div>
+    </section>
+
+    <section id="evento" class="seccion py-5">
+      <div class="container">
+        <h2 class="font-sacramento display-3 text-center text-danger">Nuestra Boda</h2>
+        <div class="text-center mb-4 text-secondary">Ceremonia Religiosa</div>
+        <div class="card p-4">
+          <p><i class="icon-calendar"></i> 15 de Diciembre, 2024</p>
+          <p><i class="icon-clock"></i> 4:00 PM</p>
+          <p><i class="icon-map-pin"></i> Parroquia fulana xd</p>
+          <div class="mapa mb-3">
+            <iframe src="https://www.google.com/maps/embed?..." width="100%" height="300" style="border:0; border-radius:8px" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+          <p class="text-center">Recepción: <strong>En algun lugar</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" class="seccion py-5 bg-light">
+      <div class="container">
+        <h2 class="font-sacramento display-3 text-center text-danger">Nuestra Historia</h2>
+        <div class="row g-3">
+        </div>
+      </div>
+    </section>
+
+    <section id="historia" class="seccion py-5">
+      <div class="container text-center">
+        <h2 class="font-sacramento display-3 text-danger">Nuestro Amor</h2>
+        <div class="bg-image rounded mt-4" style="background-image: url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=1200'); height: 400px; background-size: cover; background-position: center; position: relative;">
+          <div class="overlay"></div>
+          <div class="position-relative text-white p-4">
+            <div class="icon-heart fs-2 mb-3"></div>
+            <h3>Una Historia de Amor</h3>
+            <p>Frase que quieran poner</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+    <div class="icon-chevron-up"></div>
+  </button>
+
+<iframe 
+    src="https://www.youtube.com/embed/SCSRz35ApkU?autoplay=1" 
+    style="display: none;" 
+    allow="autoplay">
+</iframe>  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
