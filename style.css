@@ -91,7 +91,7 @@ body {
   }
   
   .hero {
-    background-image: url('/images/bg.jpg');
+    background-image: url('bg.jpg');
     background-size: cover;
     background-position: center;
     position: relative;

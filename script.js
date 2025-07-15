@@ -67,6 +67,9 @@ actualizarContador();
     "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
     "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=600&fit=crop",
     "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&h=600&fit=crop",
   ];
 
   const galeria = document.querySelector('#galeria .row');
@@ -140,3 +143,8 @@ function manejarNavegacionMovil() {
 
 window.addEventListener('resize', manejarNavegacionMovil);
 manejarNavegacionMovil();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('hidden-video');
+    video.src += '&playsinline=1'; // Add playsinline parameter for mobile compatibility
+    });
